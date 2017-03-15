@@ -7,9 +7,9 @@ namespace FlatExpenseCalculator.Models
 {
     public class Room
     {
-        public int Id;
-        public string Name;
-        public float AreaM2;
-        public IAsyncEnumerable<ApplicationUser> Occupants;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public float AreaM2 { get; set; }
+        public IEnumerable<ApplicationUser> Occupants { get; set; }
     }
 }

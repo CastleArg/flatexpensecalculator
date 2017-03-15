@@ -8,9 +8,10 @@ using FlatExpenseCalculator.Data;
 namespace FlatExpenseCalculator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170315015334_property aded")]
+    partial class propertyaded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -47,10 +48,6 @@ namespace FlatExpenseCalculator.Data.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<int?>("PropertyId");
-
-                    b.Property<int?>("RoomId");
-
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -67,10 +64,6 @@ namespace FlatExpenseCalculator.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.HasIndex("PropertyId");
-
-                    b.HasIndex("RoomId");
-
                     b.ToTable("AspNetUsers");
                 });
 
@@ -79,33 +72,9 @@ namespace FlatExpenseCalculator.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("CurrentTotalRent");
-
-                    b.Property<DateTime>("DateApplied");
-
-                    b.Property<string>("Name");
-
                     b.HasKey("Id");
 
                     b.ToTable("Property");
-                });
-
-            modelBuilder.Entity("FlatExpenseCalculator.Models.Room", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<float>("AreaM2");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("PropertyId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PropertyId");
-
-                    b.ToTable("Room");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -213,24 +182,6 @@ namespace FlatExpenseCalculator.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("FlatExpenseCalculator.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("FlatExpenseCalculator.Models.Property")
-                        .WithMany("Tenants")
-                        .HasForeignKey("PropertyId");
-
-                    b.HasOne("FlatExpenseCalculator.Models.Room")
-                        .WithMany("Occupants")
-                        .HasForeignKey("RoomId");
-                });
-
-            modelBuilder.Entity("FlatExpenseCalculator.Models.Room", b =>
-                {
-                    b.HasOne("FlatExpenseCalculator.Models.Property")
-                        .WithMany("Rooms")
-                        .HasForeignKey("PropertyId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
