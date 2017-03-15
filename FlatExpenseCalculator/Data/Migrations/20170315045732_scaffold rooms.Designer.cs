@@ -8,9 +8,10 @@ using FlatExpenseCalculator.Data;
 namespace FlatExpenseCalculator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170315045732_scaffold rooms")]
+    partial class scaffoldrooms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -99,7 +100,7 @@ namespace FlatExpenseCalculator.Data.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("PropertyId");
+                    b.Property<int?>("PropertyId");
 
                     b.HasKey("Id");
 
@@ -230,8 +231,7 @@ namespace FlatExpenseCalculator.Data.Migrations
                 {
                     b.HasOne("FlatExpenseCalculator.Models.Property")
                         .WithMany("Rooms")
-                        .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PropertyId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

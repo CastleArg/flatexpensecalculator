@@ -24,5 +24,7 @@ namespace FlatExpenseCalculator.Data
         }
 
         public DbSet<FlatExpenseCalculator.Models.Property> Property { get; set; }
+
+        public DbSet<FlatExpenseCalculator.Models.Room> Room { get; set; }
     }
 }
