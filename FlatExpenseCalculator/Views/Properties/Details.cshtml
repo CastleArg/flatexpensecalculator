@@ -32,13 +32,19 @@
           @Html.DisplayNameFor(model => model.Rooms)
        </dt>
       <dd>         
-          @Html.DisplayFor(model => model.Rooms)
+         @foreach (var room in Model.Rooms)
+         {
+           @room.Name
+         }
        </dd>
        <dt>
           @Html.DisplayNameFor(model => model.Tenants)
        </dt>
        <dd>
-          @Html.DisplayFor(model => model.Tenants)
+          @foreach (var tenant in Model.Tenants)
+          {
+             @tenant.UserName
+          }
        </dd>
     </dl>
 </div>

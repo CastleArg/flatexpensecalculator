@@ -34,6 +34,8 @@ namespace FlatExpenseCalculator.Controllers
             }
 
             var @property = await _context.Property
+                .Include(x => x.Rooms)
+                .Include(x=>x.Tenants)
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (@property == null)
             {
