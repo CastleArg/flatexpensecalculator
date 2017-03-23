@@ -12,7 +12,8 @@ namespace FlatExpenseCalculator.Models
         public string Name { get; set; }
         public IEnumerable<Room> Rooms { get; set; }
         public IEnumerable<ApplicationUser> Tenants { get; set; }
-        [DataType(DataType.Currency)] 
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public decimal CurrentTotalRent { get; set; }
         public DateTime DateApplied { get; set; }
     }

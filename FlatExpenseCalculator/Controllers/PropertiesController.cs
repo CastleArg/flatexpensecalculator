@@ -22,7 +22,7 @@ namespace FlatExpenseCalculator.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Property.ToListAsync());
+            return View(await _context.Property.Include(x=>x.Rooms).ToListAsync());
         }
 
         // GET: Properties/Details/5

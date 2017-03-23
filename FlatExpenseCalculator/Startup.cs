@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using FlatExpenseCalculator.Data;
 using FlatExpenseCalculator.Models;
 using FlatExpenseCalculator.Services;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace FlatExpenseCalculator
 {
@@ -31,6 +32,7 @@ namespace FlatExpenseCalculator
             }
 
             builder.AddEnvironmentVariables();
+           
             Configuration = builder.Build();
         }
 
