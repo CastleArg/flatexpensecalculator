@@ -11,7 +11,7 @@ namespace FlatExpenseCalculator.Data
         public static void Initialize(ApplicationDbContext context)
         {
             context.Database.EnsureCreated();
-            if(context.Property.Any())
+            if (context.Property.Any())
             {
                 return;
             }
@@ -44,6 +44,15 @@ namespace FlatExpenseCalculator.Data
                 }
             };
 
+            foreach (var tenant in tenants)
+            {
+                if (!context.Users.Any(x => x.UserName == tenant.UserName))
+                {
+                    context.Users.Add(tenant);
+                }
+            }
+            context.SaveChanges();
+
             var properties = new Property[]
             {
                 new Property
@@ -66,7 +75,7 @@ namespace FlatExpenseCalculator.Data
                           new Room
                         {
                             Name = "Room 2",
-                            AreaM2 = 18,                          
+                            AreaM2 = 18,
                             RentPerWeek = 200,
                               Occupants = new List<ApplicationUser>
                             {
@@ -107,6 +116,7 @@ namespace FlatExpenseCalculator.Data
 
                 }
             };
+
             foreach (var property in properties)
             {
                 context.Property.Add(property);
