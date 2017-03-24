@@ -15,6 +15,35 @@ namespace FlatExpenseCalculator.Data
             {
                 return;
             }
+
+            var tenants = new ApplicationUser[]
+            {
+                new ApplicationUser
+                {
+                    UserName = "Livvy"
+                },
+                 new ApplicationUser
+                {
+                    UserName = "Sam"
+                },
+                  new ApplicationUser
+                {
+                    UserName = "Kieran"
+                },
+                   new ApplicationUser
+                {
+                    UserName = "Debbie"
+                },
+                    new ApplicationUser
+                {
+                    UserName = "Mark"
+                },
+                     new ApplicationUser
+                {
+                    UserName = "Oswald"
+                }
+            };
+
             var properties = new Property[]
             {
                 new Property
@@ -27,27 +56,52 @@ namespace FlatExpenseCalculator.Data
                         new Room
                         {
                             Name = "Room 1",
-                            AreaM2 = 18
+                            AreaM2 = 18,
+                            RentPerWeek = 140,
+                            Occupants = new List<ApplicationUser>
+                            {
+                                context.Users.SingleOrDefault(x=>x.UserName == "Kieran")
+                            }
                         },
                           new Room
                         {
                             Name = "Room 2",
-                            AreaM2 = 18
+                            AreaM2 = 18,                          
+                            RentPerWeek = 200,
+                              Occupants = new List<ApplicationUser>
+                            {
+                                context.Users.SingleOrDefault(x=>x.UserName == "Debbie"),
+                                context.Users.SingleOrDefault(x=>x.UserName == "Mark")
+                            }
                         },
                             new Room
                         {
                             Name = "Room 3",
-                            AreaM2 = 18
+                            AreaM2 = 18,
+                             RentPerWeek = 110,
+                              Occupants = new List<ApplicationUser>
+                            {
+                                context.Users.SingleOrDefault(x=>x.UserName == "Oswald")
+                            }
                         },
                               new Room
                         {
                             Name = "Room 4",
-                            AreaM2 = 18
+                            AreaM2 = 18,
+                            RentPerWeek = 110,
+                             Occupants = new List<ApplicationUser>
+                            {
+                                context.Users.SingleOrDefault(x=>x.UserName == "Livvy")
+                            }
                         },
                                 new Room
                         {
                             Name = "Room 5",
-
+                            RentPerWeek = 210,
+                             Occupants = new List<ApplicationUser>
+                            {
+                                context.Users.SingleOrDefault(x=>x.UserName == "Sam")
+                            }
                         }
                     }
 

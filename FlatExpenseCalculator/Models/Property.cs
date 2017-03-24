@@ -15,6 +15,7 @@ namespace FlatExpenseCalculator.Models
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C0}")]
         public decimal CurrentTotalRent { get; set; }
+        public decimal CurrentTotalExpenses { get; set; }
         public DateTime DateApplied { get; set; }
     }
 }

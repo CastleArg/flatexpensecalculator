@@ -16,12 +16,21 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AreaM2)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AreaM2)
-        </dd>
+       <dt>
+          @Html.DisplayNameFor(model => model.RentPerWeek)
+       </dt>
+       <dd>
+          @Html.DisplayFor(model => model.RentPerWeek)
+       </dd>
+       <dt>
+          @Html.DisplayNameFor(model => model.Occupants)
+       </dt>
+       @foreach (var occupant in Model.Occupants)
+       {
+          <dd>
+            @occupant.UserName
+          </dd>
+       }
     </dl>
 </div>
 <div>

@@ -15,5 +15,7 @@ namespace FlatExpenseCalculator.Models
         public string Name { get; set; }
         public float AreaM2 { get; set; }
         public IEnumerable<ApplicationUser> Occupants { get; set; }
+        public decimal RentPerWeek { get; set; }
+
     }
 }

@@ -33,7 +33,7 @@ namespace FlatExpenseCalculator.Controllers
                 return NotFound();
             }
 
-            var room = await _context.Room
+            var room = await _context.Room.Include(x=>x.Occupants)
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (room == null)
             {

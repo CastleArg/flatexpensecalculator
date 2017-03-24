@@ -8,9 +8,10 @@ using FlatExpenseCalculator.Data;
 namespace FlatExpenseCalculator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170324021330_successfulpublish")]
+    partial class successfulpublish
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -79,8 +80,6 @@ namespace FlatExpenseCalculator.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("CurrentTotalExpenses");
-
                     b.Property<decimal>("CurrentTotalRent");
 
                     b.Property<DateTime>("DateApplied");
@@ -102,8 +101,6 @@ namespace FlatExpenseCalculator.Data.Migrations
                     b.Property<string>("Name");
 
                     b.Property<int>("PropertyId");
-
-                    b.Property<decimal>("RentPerWeek");
 
                     b.HasKey("Id");
 
