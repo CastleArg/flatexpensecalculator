@@ -34,16 +34,17 @@
       @foreach (var room in Model.Rooms)
       {
          <dd>
-            <a asp-action="Edit" asp-controller="Rooms" asp-route-id="@room.Id">@room.Occupants.FirstOrDefault().UserName + "'s room"? : "unoccupied"   </a> 
+            <a asp-action="Details" asp-controller="Rooms" asp-route-id="@room.Id">@(room.Occupants.FirstOrDefault() != null ? room.Occupants.First().UserName + "'s room" : "unoccupied")</a>
+
          </dd>
-      }
+                }
       <dt>
          @Html.DisplayNameFor(model => model.Tenants)
       </dt>
       @foreach (var tenant in Model.Tenants)
       {
          <dd>
-            <a asp-action="Details" asp-route-id="@tenant.Id">@tenant.UserName</a> 
+            <a asp-action="Details" asp-route-id="@tenant.Id">@tenant.UserName</a>
          </dd>
       }
    </dl>
