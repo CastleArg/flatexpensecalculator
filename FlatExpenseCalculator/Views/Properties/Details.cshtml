@@ -34,7 +34,7 @@
       @foreach (var room in Model.Rooms)
       {
          <dd>
-            <a asp-action="Edit" asp-controller="Rooms" asp-route-id="@room.Id">@room.Name</a> 
+            <a asp-action="Edit" asp-controller="Rooms" asp-route-id="@room.Id">@room.Occupants.FirstOrDefault().UserName + "'s room"? : "unoccupied"   </a> 
          </dd>
       }
       <dt>

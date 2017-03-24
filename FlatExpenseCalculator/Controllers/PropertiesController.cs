@@ -22,7 +22,7 @@ namespace FlatExpenseCalculator.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Property.Include(x=>x.Rooms).ToListAsync());
+            return View(await _context.Property.Include(x=>x.Rooms).ThenInclude(x=>x.Occupants).ToListAsync());
         }
 
         // GET: Properties/Details/5
@@ -35,6 +35,7 @@ namespace FlatExpenseCalculator.Controllers
 
             var @property = await _context.Property
                 .Include(x => x.Rooms)
+                .ThenInclude(x=>x.Occupants)
                 .Include(x=>x.Tenants)
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (@property == null)

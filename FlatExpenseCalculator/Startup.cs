@@ -78,6 +78,7 @@ namespace FlatExpenseCalculator
             app.UseStaticFiles();
 
             app.UseIdentity();
+        
 
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
 

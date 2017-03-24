@@ -10,7 +10,11 @@ namespace FlatExpenseCalculator.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.Name == "Mark")
+                return RedirectToAction("index", "properties");
+
+            else
+                return RedirectToAction("details", "room", User.Identity.Name);
         }
 
         public IActionResult About()

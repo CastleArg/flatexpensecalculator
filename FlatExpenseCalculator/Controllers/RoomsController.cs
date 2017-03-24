@@ -43,6 +43,24 @@ namespace FlatExpenseCalculator.Controllers
             return View(room);
         }
 
+        // GET: Rooms/Details/5
+        public async Task<IActionResult> Details(string userName)
+        {
+            if (userName == null)
+            {
+                return NotFound();
+            }
+
+            var room = await _context.Room.Include(x => x.Occupants)
+                .SingleOrDefaultAsync(m => m.Occupants.Any(x=> x.UserName == userName));
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            return View(room);
+        }
+
         // GET: Rooms/Create
         public IActionResult Create()
         {
