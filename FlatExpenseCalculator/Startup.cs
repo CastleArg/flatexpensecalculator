@@ -63,7 +63,7 @@ namespace FlatExpenseCalculator
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+         
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -78,7 +78,6 @@ namespace FlatExpenseCalculator
             app.UseStaticFiles();
 
             app.UseIdentity();
-        
 
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
 

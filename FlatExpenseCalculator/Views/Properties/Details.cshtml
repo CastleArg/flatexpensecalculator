@@ -1,7 +1,7 @@
 @model FlatExpenseCalculator.Models.Property
 
 @{
-    ViewData["Title"] = "Details";
+   ViewData["Title"] = "Details";
 }
 
 <h2>Details</h2>
@@ -37,7 +37,7 @@
             <a asp-action="Details" asp-controller="Rooms" asp-route-id="@room.Id">@(room.Occupants.FirstOrDefault() != null ? room.Occupants.First().UserName + "'s room" : "unoccupied")</a>
 
          </dd>
-                }
+      }
       <dt>
          @Html.DisplayNameFor(model => model.Tenants)
       </dt>

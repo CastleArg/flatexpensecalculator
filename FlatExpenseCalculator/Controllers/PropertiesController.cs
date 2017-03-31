@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FlatExpenseCalculator.Data;
 using FlatExpenseCalculator.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FlatExpenseCalculator.Controllers
 {
-    public class PropertiesController : Controller
+   [Authorize]
+   public class PropertiesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
